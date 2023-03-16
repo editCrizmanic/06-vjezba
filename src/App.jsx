@@ -2,21 +2,15 @@ import { useState } from 'react';
 import './App.css';
 
 const App = () => {
-  const [name, setName] = useState({
-    ime: "ime: Edita",
-    prezime: "prezime: Krizmanic"
-  });
+  const [name, setName] = useState("ime: Edita");
 
   const changeName = () => {
-    setName({
-      ime: name.prezime,
-      prezime: name.ime
-    });
+    setName(name === "ime: Edita" ? "prezime: Krizmanic" : "ime: Edita");
   };
 
   return (
     <div className="App">
-      <h2 onMouseOver={changeName} onMouseOut={changeName}>{name.ime}</h2>
+      <h2 onMouseOver={changeName} onMouseOut={changeName}>{name}</h2>
     </div>
   );
 };
